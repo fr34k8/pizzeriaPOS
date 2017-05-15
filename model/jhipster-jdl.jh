@@ -1,0 +1,62 @@
+entity Pizzeria {
+	name String,
+    location Location,
+    Telephone String,
+    Owner Person,
+    TaxID String  
+    
+}
+entity Menu {
+    name String,
+    price Float 
+}
+entity Order{
+    items Menu,
+    total Float,
+    type Ordertypes,
+    time LocalDate,
+    customer Person,
+    table String
+}
+
+/** not an ignored comment */
+entity Location {
+	streetAddress String,
+	postalCode String,
+	city String,
+	stateProvince String
+}
+
+/**
+ * The Employee entity.
+ */
+entity Person {
+	/**
+	* The firstname attribute.
+	*/
+	firstName String,
+	lastName String,
+	email String,
+	phoneNumber String,
+    address Location,
+    note String
+	
+}
+enum Ordertypes {
+    TOGO, RESTAURANT, DELIVERY
+}
+
+relationship OneToOne {	
+     Order{customer}  to Person,
+     Pizzeria{location}  to Location,
+     Person{address}  to Location
+   
+}
+// defining multiple OneToMany relationships with comments
+relationship OneToMany {
+	       Order{items}  to Menu    
+}
+
+
+
+
