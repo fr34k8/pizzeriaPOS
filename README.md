@@ -5,4 +5,6 @@ To Do
 A. Create Model
 B. Create application
 C. Implement GOBD and GOBIT Standards
+D. Testing
 
+This app would be using Springframework.
